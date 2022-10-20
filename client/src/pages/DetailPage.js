@@ -1,5 +1,10 @@
 import React from "react";
+import Detail from "../detail/Detail";
 
 export default function DetailPage() {
-    return <div>상세 페이지</div>
+  return (
+    <div>
+      <Detail />
+    </div>
+  );
 }
