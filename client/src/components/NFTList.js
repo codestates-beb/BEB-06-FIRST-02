@@ -20,6 +20,7 @@ function NFTList(props) {
         {props.creator}
       </div>
     </div>
+    
   }
   
   export default NFTList
