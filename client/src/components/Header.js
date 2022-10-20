@@ -20,11 +20,11 @@ function Header(props) {
 
                 <Container>
 
-                    <Navbar.Brand href="/"> Logo</Navbar.Brand>
+                    <Navbar.Brand as={Link} to="/"> Logo</Navbar.Brand>
                     <Nav className="me-auto">
-                        <Nav.Link href="/minting">민팅페이지</Nav.Link>
-                        <Nav.Link href="detail">상세페이지</Nav.Link>
-                        <Nav.Link href="mypage">마이페이지</Nav.Link>
+                        <Nav.Link as={Link} to="/minting">민팅페이지</Nav.Link>
+                        <Nav.Link as={Link} to="/detail">상세페이지</Nav.Link>
+                        <Nav.Link as={Link} to="/mypage">마이페이지</Nav.Link>
                     </Nav>
                     <div className="userInfo"><a style={{ color: "white" }}>{props.account}</a></div>
                     <h1>\</h1>
