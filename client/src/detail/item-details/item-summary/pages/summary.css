@@ -1,0 +1,149 @@
+.item-summary {
+  margin: 20px;
+  max-width: 30%;
+}
+
+.item-article {
+  padding: 5px;
+  width: 100%;
+}
+
+.item-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 5px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.item-section button {
+  background-color: inherit;
+}
+
+.item-section__description {
+  border-bottom: var(--border);
+  width: 100%;
+  display: flex;
+}
+
+.item-section__description i,
+.item-properties i,
+.item-about i,
+.item-detail i {
+  margin-right: 20px;
+}
+
+.item-section__creator {
+  display: flex;
+  padding: 30px;
+  border-bottom: var(--border);
+  width: 100%;
+}
+
+.item-section__creator-creator {
+  font-weight: 700;
+}
+
+.item-section__creator span {
+  margin-right: 20px;
+}
+
+.item-article__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-article__header-like {
+  display: flex;
+  padding: 10px;
+}
+
+.item-article__header-like button {
+  background-color: #fff;
+  margin-left: 8px;
+}
+
+.section-padding {
+  padding: 20px;
+}
+
+.item-about {
+  width: 100%;
+  border-bottom: var(--border);
+}
+
+.item-properties {
+  width: 100%;
+  border-bottom: var(--border);
+  display: flex;
+}
+.item-properties > div {
+  width: 100%;
+}
+
+.item-detail__container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.item-detail__container > button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-about__container > button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-detail {
+  width: 100%;
+}
+
+.item-about__description,
+.item-detail__description {
+  margin-top: 15px;
+  text-align: start;
+  width: 100%;
+}
+
+.item-detail__description-menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-detail__description-menu:first-child,
+.item-detail__description-menu:nth-child(2) {
+  margin-bottom: 15px;
+}
+
+.item-properties__button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: none;
+    background-color: none;
+  }
+  50% {
+    transform: scale(1.4);
+    color: tomato;
+    background-color: none;
+  }
+  100% {
+    transform: none;
+    background-color: none;
+  }
+}
+
+.item-article__header-like:hover button {
+  will-change: transform;
+  animation: heartbeat 1s ease-in-out infinite;
+}

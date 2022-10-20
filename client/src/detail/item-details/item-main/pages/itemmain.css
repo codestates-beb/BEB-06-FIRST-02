@@ -1,0 +1,110 @@
+.item-main {
+  margin: 20px;
+  max-width: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.item-main button {
+  background-color: inherit;
+}
+
+.item-main__header div {
+  width: 100%;
+  display: flex;
+}
+
+.item-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.item-price div {
+  overflow: hidden;
+}
+
+.item-price img {
+  width: 10%;
+}
+
+.item-price__price {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.item-price__price span {
+  font-size: 30px;
+  margin: 10% 0;
+  margin-right: 10%;
+  font-weight: 600;
+}
+
+.item-price-button {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.item-price-button button {
+  background-color: #2081e2;
+  padding: 2% 10%;
+  color: antiquewhite;
+  border-radius: 10px;
+}
+
+.item-offers {
+  padding: 20px;
+}
+
+.item-offers > button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-offer__history {
+  margin-top: 20px;
+}
+
+.item-offer__history-bar {
+  display: flex;
+  padding: 10px 0;
+  border-bottom: var(--border);
+}
+
+.item-offer__history-bar div:first-child {
+  width: 20%;
+}
+
+.item-offer__history-bar div:nth-child(2),
+.item-offer__history-details :nth-child(2) {
+  width: 36%;
+}
+
+.item-offer__history-container {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.item-offer__history-details {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.item-offer__history-details-price {
+  width: 20%;
+  display: flex;
+  align-items: center;
+}
+
+.item-offer__history-details img {
+  width: 10%;
+}
