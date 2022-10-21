@@ -17,6 +17,7 @@ const auth = 'Basic ' + Buffer.from(projectId + ':' + projectSecret).toString('b
   })
 
 
+
 function MintingPage() {
   const [imgData,setImgData] = useState();
   const [imageSrc, setImageSrc] = useState("");
@@ -61,6 +62,7 @@ function MintingPage() {
     const imgUrl = await client.add(files);
     console.log(imgUrl);
   }
+
 
 
   return (
