@@ -1,8 +1,13 @@
 import { useState } from "react";
+import { atom, useRecoilState } from "recoil";
 
+export const likeIs = atom({
+  key: "please",
+  default: 0,
+});
 const ItemArticleHeader = () => {
   const [like, setLike] = useState(false);
-  const [likeCount, setLikeCount] = useState(0);
+  const [likeCount, setLikeCount] = useRecoilState(likeIs);
 
   const handleLike = () => {
     if (like) {

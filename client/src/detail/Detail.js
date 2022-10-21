@@ -1,12 +1,21 @@
 import "./Detail.css";
-import ItemSummary from "./item-details/item-summary/pages/ItemSummary";
-import ItemMain from "./item-details/item-main/pages/ItemMain";
+import ItemSummary from "./item-details/pages/ItemSummary";
+import ItemMain from "./item-details/pages/ItemMain";
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from "recoil";
 
 function Detail() {
   return (
     <div id="Detail">
-      <ItemSummary />
-      <ItemMain />
+      <RecoilRoot>
+        <ItemSummary />
+        <ItemMain />
+      </RecoilRoot>
     </div>
   );
 }

@@ -19,6 +19,7 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 20px;
+  background-color: #fff;
 }
 
 .item-price div {
@@ -60,12 +61,17 @@
 
 .item-offers {
   padding: 20px;
+  background-color: #fff;
 }
 
 .item-offers > button {
   width: 100%;
   display: flex;
   justify-content: space-between;
+}
+
+.item-offers > button i {
+  margin-right: 20px;
 }
 
 .item-offer__history {
@@ -107,4 +113,12 @@
 
 .item-offer__history-details img {
   width: 10%;
+}
+
+.prop-likecounter {
+  font-size: large;
+}
+
+.prop-likecounter i {
+  margin-right: 15px;
 }

@@ -12,8 +12,8 @@ const ItemPropertise = () => {
   };
 
   return (
-    <div className="item-properties section-padding">
-      <div>
+    <div className="item-properties">
+      <div className="section-padding">
         <button
           onClick={handlePropertyToggle}
           className="item-properties__button"
@@ -28,14 +28,26 @@ const ItemPropertise = () => {
             <i class="fa-solid fa-angle-down"></i>
           )}
         </button>
-        {propertyToggle ? (
-          <div>
-            <div>
-              <div></div>
-            </div>
-          </div>
-        ) : null}
       </div>
+      {propertyToggle ? (
+        <div className="properties-property">
+          <div className="properties-entity">
+            <span>metadata</span>
+            <span>metadata value</span>
+            <span>metadata Probability</span>
+          </div>
+          <div className="properties-entity">
+            <span>metadata</span>
+            <span>metadata value</span>
+            <span>metadata Probability</span>
+          </div>
+          <div className="properties-entity">
+            <div>metadata</div>
+            <div>metadata value</div>
+            <div>metadata Probability</div>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 };

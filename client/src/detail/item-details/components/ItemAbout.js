@@ -11,8 +11,8 @@ const ItemAbout = () => {
     }
   };
   return (
-    <div className="item-about section-padding">
-      <div className="item-about__container">
+    <div className="item-about">
+      <div className="item-about__container section-padding">
         <button onClick={handleAbountToggle}>
           <div>
             <i class="fa-solid fa-file-signature"></i>
@@ -24,6 +24,7 @@ const ItemAbout = () => {
             <i class="fa-solid fa-angle-down"></i>
           )}
         </button>
+
         {aboutToggle ? (
           <div className="item-about__description">
             <span>
