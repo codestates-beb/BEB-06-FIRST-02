@@ -1,10 +1,26 @@
 import { useState } from "react";
 import '../asset/mintingPage.css'
+import { create } from 'ipfs-http-client';
+import { Buffer } from 'buffer';
+
+const projectId = "2GP6hmvIjDCIGLy3xIv8FEtX6gr"
+const projectSecret = "54c311eb5f5120891becb6a30380a04b"
+const auth = 'Basic ' + Buffer.from(projectId + ':' + projectSecret).toString('base64');
+
+ const client = create({
+    host: 'ipfs.infura.io',
+    port: 5001,
+    protocol: 'https',
+    headers: {
+      authorization: auth
+    }
+  })
 
 
 function MintingPage() {
   const [imgData,setImgData] = useState();
   const [imageSrc, setImageSrc] = useState("");
+  const [files, setFiles] = useState('');
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -17,8 +33,6 @@ function MintingPage() {
 
   // todo : 버튼 클릭시, nft발행
   const handleSubmit = (e) => {
-
-    console.log(imgData);
     e.preventDefault();
 
     // axios.post("http://localhost:8080/upload", img)
@@ -37,11 +51,16 @@ function MintingPage() {
         resolve();
       };
     });
-
+    setFiles(e.target.files[0]);
     img.append("file", e.target.files[0]);
     setImgData(img)
     console.log(img);
   };
+
+  const minting = async() => {
+    const imgUrl = await client.add(files);
+    console.log(imgUrl);
+  }
 
 
   return (
@@ -117,7 +136,7 @@ function MintingPage() {
           </div>
           <div className="mintPage_submit">
             <div>
-              <button className="mintPage_submit_button" type="submit">
+              <button className="mintPage_submit_button" type="submit" onClick={minting}>
                 Create
               </button>
             </div>
