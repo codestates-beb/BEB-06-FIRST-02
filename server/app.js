@@ -6,12 +6,13 @@ const port = 3001;
 
 
 const testRouter = require('./router/testRouter');
+const openseaRouter = require('./router/openseaRouter');
 
 app.use(cors());
 app.use(express.json());
 
 app.use('/test', testRouter);
-
+app.use('/opesea', openseaRouter);
 
 app.get('/', (req, res) => {
     res.status(200).send('Welcome');
