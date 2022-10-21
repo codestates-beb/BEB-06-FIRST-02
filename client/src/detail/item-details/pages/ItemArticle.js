@@ -1,5 +1,5 @@
-import ItemArticleHeader from "../components/ItemArticleHeader";
-import dummyNFT from "../../../image/dummy-nft.png";
+import ItemArticleHeader from "./ItemArticleHeader";
+import dummyNFT from "../../image/dummy-nft.png";
 
 const ItemArticle = () => {
   return (

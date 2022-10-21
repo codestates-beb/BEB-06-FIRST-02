@@ -1,4 +1,4 @@
-import ItemHeader from "../components/ItemHeader";
+import ItemHeader from "./ItemHeader";
 import ItemPrice from "../components/ItemPrice";
 import ItemOffers from "../components/ItemOffers";
 

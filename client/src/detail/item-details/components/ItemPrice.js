@@ -1,12 +1,13 @@
 import { useState } from "react";
-import ethreumSymbol from "../../../image/ethereum_symbol.png";
+import ethreumSymbol from "../../image/ethereum_symbol.png";
 import ConnectMetamask from "./ConnetMetamask";
 
 const ItemPrice = () => {
   const [login, setLogin] = useState(false);
 
-  const handleCartButton = () => {
-    ConnectMetamask();
+  const handleCartButton = async () => {
+    await ConnectMetamask();
+    setLogin(true);
   };
 
   const handleBuyButton = () => {
