@@ -550,7 +550,14 @@ function App() {
       console.log(e);
       return e;
     }
+  }
 
+
+  const transfer = async () => {
+    var accounts = await window.ethereum.request({
+      method: "eth_requestAccounts",
+    });
+    console.log(window.ethereum.isConnected());
 
   }
 
