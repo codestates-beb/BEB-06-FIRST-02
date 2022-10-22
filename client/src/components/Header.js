@@ -12,6 +12,7 @@ import { FaBan, FaCheck } from "react-icons/fa";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Header(props) {
+
     //test
 
     return (
@@ -28,6 +29,12 @@ function Header(props) {
                     </Nav>
                     <div className="userInfo"><a style={{ color: "white" }}>{props.account}</a></div>
                     <h1>\</h1>
+                    <button
+                        className="metaConnect"
+                        onClick={props.approve}
+                    >
+                        approve to contract
+                    </button>
 
                     {props.loaded ? <button
                         className="metaConnect"
