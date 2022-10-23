@@ -5,14 +5,6 @@ module.exports = {
 
     },
     approve: async (req, res) => {
-        
-
-        //res.status(200).json(123);
-        // if(typeof web3 !== undefined){
-        //     var web3 = new Web3(rpcURL);
-        //     //console.log(web3);
-        // }
-
 
     }
 }

@@ -531,20 +531,20 @@ function App() {
         }
       ]
       const address = '0xFa5F766C57b21b83c2AD003E25682EC7e970213B';//컨트랙트 주소
-      //Contract.setProvider('https://goerli.infura.io/v3/7151e9c9787448358239dabdf7e9a2c7');
       const contract = new web3.eth.Contract(abi, address);
       const result = await contract.methods.ownerOf("1").call();
+      
+      await contract.methods.initDealAddress("0xe38440210899d2daa484252C1B39C08aC00fC64D").send({from: accounts[0], gas: 21000, gasPrice:'1000000000000'});
+      await contract.methods.listing(1, 2000).send({from: accounts[0], gas: 21000, gasPrice:'1000000000000'});
+      await contract.methods.approve("0xe38440210899d2daa484252C1B39C08aC00fC64D", 1).send({from: accounts[0], gas: 21000, gasPrice:'1000000000000'});
 
-      //const result1 = await contract.methods.approve("0x1E5d644fB55d28fe6064a5ee68d42D82DF5b7ea0", 1).send({from: accounts[0], gas: 21000, gasPrice:'1000000000000'});;
-
-      //const result2 = await contract.methods.ownerOf("1").call();
-      const result3 = await contract.methods.getApproved("1").call();
+      const result1 = await contract.methods.getApproved("1").call();
 
 
 
       console.log(result);
       //console.log(result1);
-      console.log(result3);
+      console.log(result1);
       return result;
     } catch (e) {
       console.log(e);
@@ -559,6 +559,147 @@ function App() {
     });
     console.log(window.ethereum.isConnected());
 
+    try {
+      const abi = [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_from",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "_to",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_tokenId",
+              "type": "uint256"
+            }
+          ],
+          "name": "deal",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "payable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "DealError",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_address",
+              "type": "address"
+            }
+          ],
+          "name": "initErc721Contract",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "NoListing",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "NotContract",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "NotEnoughPrice",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_owner",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_price",
+              "type": "uint256"
+            }
+          ],
+          "name": "saveListing",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "erc721Contract",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "name": "listing",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "price",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        }
+      ];
+      const address = '0xe38440210899d2daa484252C1B39C08aC00fC64D';//컨트랙트 주소
+      const contract = new web3.eth.Contract(abi, address);
+
+      await contract.methods.initErc721Contract("0xFa5F766C57b21b83c2AD003E25682EC7e970213B").send({from: accounts[0], gas: 21000, gasPrice:'1000000000000'});
+      await contract.methods.deal(address, accounts[0], 1).send({from: accounts[0], gas: 21000, gasPrice:'1000000000000'});
+
+    } catch (e) {
+      console.log(e);
+      return e;
+    }
+
   }
 
   return (
@@ -566,6 +707,7 @@ function App() {
       <BrowserRouter>
         <div>
           <Header
+            transfer={transfer}
             approve={approve}
             connectWallet={connectWallet}
             disconnectWallet={disconnectWallet}

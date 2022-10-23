@@ -13,8 +13,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Header(props) {
 
-    //test
-
     return (
         <>
             <Navbar bg="dark" variant="dark">
@@ -34,6 +32,12 @@ function Header(props) {
                         onClick={props.approve}
                     >
                         approve to contract
+                    </button>
+                    <button
+                        className="metaConnect"
+                        onClick={props.transfer}
+                    >
+                        transfer
                     </button>
 
                     {props.loaded ? <button
