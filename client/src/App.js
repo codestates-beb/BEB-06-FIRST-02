@@ -536,7 +536,6 @@ function App() {
       
       await contract.methods.initDealAddress("0xe38440210899d2daa484252C1B39C08aC00fC64D").send({from: accounts[0], gas: 21000, gasPrice:'1000000000000'});
       await contract.methods.listing(1, 2000).send({from: accounts[0], gas: 21000, gasPrice:'1000000000000'});
-      await contract.methods.approve("0xe38440210899d2daa484252C1B39C08aC00fC64D", 1).send({from: accounts[0], gas: 21000, gasPrice:'1000000000000'});
 
       const result1 = await contract.methods.getApproved("1").call();
 
