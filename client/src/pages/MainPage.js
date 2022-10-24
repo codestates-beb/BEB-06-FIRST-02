@@ -19,8 +19,8 @@ export default function MainPage() {
           })
           .then(data => {
             setpunkListData(data);
-            console.log("테스트1")
-            console.log(data);
+            // console.log("테스트1")
+            // console.log(data);
           });
       }, []);
   
