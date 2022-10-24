@@ -4,11 +4,11 @@ import ItemOffers from "../components/ItemOffers";
 
 import "./itemmain.css";
 
-const ItemMain = () => {
+const ItemMain = ({ info }) => {
   return (
     <div className="item-main">
-      <ItemHeader />
-      <ItemPrice />
+      <ItemHeader info={info} />
+      <ItemPrice info={info} />
       <ItemOffers />
     </div>
   );

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ethreumSymbol from "../../image/ethereum_symbol.png";
+import ethreumSymbol from "../../../assets/weth.png";
 
 const ItemOffers = () => {
   const [offerToggle, setOfferToggle] = useState(false);
