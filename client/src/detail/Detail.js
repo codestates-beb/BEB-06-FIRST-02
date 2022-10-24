@@ -10,14 +10,16 @@ import {
 } from "recoil";
 
 function Detail() {
+
   return (
     <div id="Detail">
       <RecoilRoot>
-        <ItemSummary />
+        <ItemSummary/>
         <ItemMain />
       </RecoilRoot>
     </div>
   );
+  
 }
 
 export default Detail;

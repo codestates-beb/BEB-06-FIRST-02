@@ -1,19 +1,19 @@
 import React from "react";
 import {useState, useEffect} from 'react';
 import Web3 from 'web3';
-import PunkList from '../components/PunkList';
-import Tab from '../components/Tab'
+
+import ThemeList from '../components/ThemeList'
+
+import '../asset/MainPage.css'
 import dummy from '../components/dummy'; // 임시로 받아오는 더미데이터
-
-
+// import Page from '../components/Page';
 
 export default function MainPage() {    
-    const [punkListData, setpunkListData] = useState(dummy);
+    const [punkListData, setpunkListData] = useState(dummy); //데이터를 더미서 받아옴
+    // console.log(punkListData)
     return (
-        <div>
-            <Tab/>
-            <PunkList punkListData={punkListData}/>
-            
+        <div className="mainpage">
+            <ThemeList punkListData={punkListData}/>
         </div>
     );
 }

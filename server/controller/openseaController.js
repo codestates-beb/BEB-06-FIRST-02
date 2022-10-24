@@ -2,31 +2,51 @@ const fs = require("fs");
 
 const DB = require("../DB/nftList.json")
 
-const _data = {
-    price : "0 ETH",
-    token_id: "",
-    name: "",
-    traits: "",
-    image: "",
-    theme: ""
-}
+
+// price/writer/theme
+
 /* 
-    Buy 하면 NFT 판매 데이터 req로 받고 DB(nftList.json)맨 앞에 데이터 추가
+    Sell 하면 NFT 판매 데이터 req로 받고 DB(nftList.json)맨 앞에 데이터 추가
 */
-// http://localhost:3001/opesea/listing
 module.exports = {
+    // await axios.post('http://localhost:3001/opesea/listing', {data},{headers});
     listing : (req, res) => {
+
+    // req
+    const { name, token_id, traits, image, theme, writer, price} = req.body.data;
+
+    const _data = {
+        "name": name,
+        "token_id": token_id,
+        "traits": traits,
+        "image": image,
+        "theme": theme,
+        "writer": writer,
+        "price": price
+    }
+
     fs.readFile('./DB/nftList.json','utf8',(err,data) => {
         if(err) throw err;
         let obj = JSON.parse(data)
         obj.unshift(_data)
-        let json = JSON.stringify(obj);
+        let json = JSON.stringify(obj,null,4);
         fs.writeFile('./DB/nftList.json',json,'utf8',(err,result) => {
             if (err) throw err;
         })
     });
 
     res.send("testtest")
+    },
+    // http://localhost:3001/opesea/getData
+    getData : (req, res) => {
+        fs.readFile('./DB/nftList.json','utf8',(err,data) => {
+            if(err) throw err;
+            let obj = JSON.parse(data)
+
+            console.log(obj[0],obj[1]);
+
+            res.send("testtest")
+        });
     }
   };
   
