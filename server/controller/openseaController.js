@@ -15,10 +15,10 @@ const _data = {
 // price/writer/theme
 
 /* 
-    Buy 하면 NFT 판매 데이터 req로 받고 DB(nftList.json)맨 앞에 데이터 추가
+    Sell 하면 NFT 판매 데이터 req로 받고 DB(nftList.json)맨 앞에 데이터 추가
 */
-// http://localhost:3001/opesea/listing
 module.exports = {
+    // http://localhost:3001/opesea/listing
     listing : (req, res) => {
 
     // req
@@ -34,6 +34,17 @@ module.exports = {
     });
 
     res.send("testtest")
+    },
+    // http://localhost:3001/opesea/getData
+    getData : (req, res) => {
+        fs.readFile('./DB/nftList.json','utf8',(err,data) => {
+            if(err) throw err;
+            let obj = JSON.parse(data)
+
+            console.log(obj[0],obj[1]);
+
+            res.send("testtest")
+        });
     }
   };
   
