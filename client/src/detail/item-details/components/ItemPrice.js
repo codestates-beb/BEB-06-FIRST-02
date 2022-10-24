@@ -3,7 +3,7 @@ import ethreumSymbol from "../../../assets/weth.png";
 import ConnectMetamask from "./ConnetMetamask";
 import axios from "axios";
 
-const ItemPrice = ({ info }) => {
+const ItemPrice = ({ info, transfer }) => {
   const [login, setLogin] = useState(false);
 
   const handleCartButton = async () => {
@@ -13,6 +13,7 @@ const ItemPrice = ({ info }) => {
 
   const handleBuyButton = () => {
     ConnectMetamask();
+    transfer();
   };
 
   const handleSellButton = async () => {

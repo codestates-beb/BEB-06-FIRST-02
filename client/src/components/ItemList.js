@@ -41,7 +41,7 @@ const ItemList = ({ getItem, selectTheme }) => {
           // 선택한 테마가 all일 경우 전체아이템 출력 아닐시 선택한 아이템으로 필터 적용 후 출력
           selectTheme === "All"
             ? getThemeItem.slice(offset, offset + itemCount).map((punk) => (
-                <Link to="/detail" state={{ details: punk }}>
+                <Link to={`/detail/${punk.token_id}`} state={{ details: punk }}>
                   <div>
                     <Item
                       key={punk.token_id}

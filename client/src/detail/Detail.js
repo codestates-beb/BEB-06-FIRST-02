@@ -12,7 +12,7 @@ function Detail(props) {
     <div id="Detail">
       <RecoilRoot>
         <ItemSummary info={details} />
-        <ItemMain info={details} />
+        <ItemMain info={details} transfer={props.transfer} />
       </RecoilRoot>
     </div>
   );
