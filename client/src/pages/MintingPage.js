@@ -22,7 +22,8 @@ const client = create({
 
 
 function MintingPage() {
-  const [contractAddress,setContractAddress] = useState("0x32ef07a26a105b262f69ed75083d174C85499FBd");
+  const [contractAddress,setContractAddress] = useState("0x725A51b60f417ef48B7aC45B47dab4eA111313c5");
+  const [dealAddress,setDealAddress] = useState("0xE27777A6D3627a587167E55f6C17B8B7fc39674A");
 
 
   const [imgData,setImgData] = useState();
@@ -41,8 +42,6 @@ function MintingPage() {
   // todo : 버튼 클릭시, nft발행
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // axios.post("http://localhost:8080/upload", img)
   };
 
   const encodeFileToBase64 = (e) => {
@@ -83,7 +82,6 @@ function MintingPage() {
 
 
       // todo nft Minting
-
       const web3 = new Web3(window.ethereum);
       const accounts = await web3.eth.getAccounts();
 
@@ -98,7 +96,7 @@ function MintingPage() {
         contractAddress
       )
       
-      const MINTING = await ERC721Contract.methods.safeMint(accounts[0],8,metaDataUrl).send(transaction);
+      const MINTING = await ERC721Contract.methods.safeMint(accounts[0],metaDataUrl).send(transaction);
       
       // 민팅 성공 시 
       console.log(MINTING);
