@@ -1,27 +1,23 @@
 import { useState } from "react";
 import ethreumSymbol from "../../../assets/weth.png";
 import ConnectMetamask from "./ConnetMetamask";
-<<<<<<< HEAD
-=======
 import axios from "axios";
->>>>>>> 3794a33a59b0e43d27fc9773b72c0bb33275364f
 
-const ItemPrice = ({ info }) => {
-  const [login, setLogin] = useState(false);
+const ItemPrice = ({ info, transfer }) => {
+  const [sell, setSell] = useState(false);
 
   const handleCartButton = async () => {
     await ConnectMetamask();
-    setLogin(true);
   };
 
   const handleBuyButton = () => {
     ConnectMetamask();
+    transfer();
   };
 
-<<<<<<< HEAD
-=======
   const handleSellButton = async () => {
     ConnectMetamask();
+    setSell(true);
 
     const _data = {
       name: `${info.name}`,
@@ -39,7 +35,6 @@ const ItemPrice = ({ info }) => {
 
     console.log(a);
   };
->>>>>>> 3794a33a59b0e43d27fc9773b72c0bb33275364f
 
   return (
     <div className="item-price main-border">
@@ -52,12 +47,29 @@ const ItemPrice = ({ info }) => {
       </div>
       <div className="item-price-button">
         <button onClick={handleCartButton}>Add to cart</button>
-<<<<<<< HEAD
-        <button onClick={handleBuyButton} >Buy</button>
-=======
-        <button onClick={handleBuyButton}>Buy</button>
-        <button onClick={handleSellButton}>Sell</button>
->>>>>>> 3794a33a59b0e43d27fc9773b72c0bb33275364f
+        {sell ? (
+          <>
+            <button onClick={handleBuyButton}>Buy</button>
+            <button
+              onClick={handleSellButton}
+              disabled={sell}
+              style={{ backgroundColor: "gray" }}
+            >
+              Sell
+            </button>
+          </>
+        ) : (
+          <>
+            <button
+              onClick={handleBuyButton}
+              disabled={!sell}
+              style={{ backgroundColor: "gray" }}
+            >
+              Buy
+            </button>
+            <button onClick={handleSellButton}>Sell</button>
+          </>
+        )}
       </div>
     </div>
   );

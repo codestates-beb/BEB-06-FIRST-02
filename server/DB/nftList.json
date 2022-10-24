@@ -1,26 +1,31 @@
 [
-<<<<<<< HEAD
     {
         "name": "yongNFT",
-        "token_id": "4",
+        "token_id": "1",
         "traits": "101",
-        "image": "https://i.seadn.io/gae/GN7mNNKxXQ63oHPQdKObSJBuUShW5cJLxHsBJRCqpoCO3O-q_5bJ8kK3GeS7_CahUyN8Q_qMLFBz9hdFI-F3GiQ0FfZpzS338UYrJQ?auto=format&w=640",
+        "image": "https://i.seadn.io/gae/RJyiOzY5WO9Xgx-Js_ZX6PFxvc-jo1OA6mJXN7HfpPqers2TvMyvCYs3Qpq08cRfeXHgfU2uWa8Xsj5XRkD0TKJPo6tha3rlVw8DWQ?auto=format&w=640",
         "theme": "art",
         "writer": "yong",
-        "price": "0.04 ETH"
+        "price": "0.01 ETH"
     },
     {
-        "name": "Optimism Ape Yacht Club",
-        "token_id": "8",
+        "name": "yongNFT",
+        "token_id": "1",
         "traits": "101",
-        "image": "https://i.seadn.io/gae/T5ujC6LqD4CzhCvHFis0eZVXuwTk4JeJB9gFgnzbFGVl9bcS75USnJP9n_fnmCBwJo9kAJo2JWV21dp8y90AVEnbUDX3rVR_zMXKyw?auto=format&w=384",
-        "theme": "collectibles",
-        "writer": "hong",
-        "price": "0.02 ETH"
+        "image": "https://i.seadn.io/gae/RJyiOzY5WO9Xgx-Js_ZX6PFxvc-jo1OA6mJXN7HfpPqers2TvMyvCYs3Qpq08cRfeXHgfU2uWa8Xsj5XRkD0TKJPo6tha3rlVw8DWQ?auto=format&w=640",
+        "theme": "art",
+        "writer": "yong",
+        "price": "0.01 ETH"
     },
-=======
- 
->>>>>>> 0fe6417 (mainpage backend update)
+    {
+        "name": "yongNFT",
+        "token_id": "1",
+        "traits": "101",
+        "image": "https://i.seadn.io/gae/RJyiOzY5WO9Xgx-Js_ZX6PFxvc-jo1OA6mJXN7HfpPqers2TvMyvCYs3Qpq08cRfeXHgfU2uWa8Xsj5XRkD0TKJPo6tha3rlVw8DWQ?auto=format&w=640",
+        "theme": "art",
+        "writer": "yong",
+        "price": "0.01 ETH"
+    },
     {
         "name": "yongNFT",
         "token_id": "1",
@@ -3558,5 +3563,4 @@
         "writer": "yong",
         "price": "0.01 ETH"
     }
-   
 ]

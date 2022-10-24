@@ -735,7 +735,10 @@ function App() {
                 />
               }
             />
-            <Route path="/detail" element={<DetailPage />} />
+            <Route
+              path="/detail/:id"
+              element={<DetailPage transfer={transfer} />}
+            />
 
             {/* <Route path='*' element={<NotFound />} /> */}
           </Routes>

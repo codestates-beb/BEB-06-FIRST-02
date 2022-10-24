@@ -1,10 +1,10 @@
 import React from "react";
 import Detail from "../detail/Detail";
 
-export default function DetailPage() {
+export default function DetailPage({ transfer }) {
   return (
     <div>
-      <Detail />
+      <Detail transfer={transfer} />
     </div>
   );
 }
