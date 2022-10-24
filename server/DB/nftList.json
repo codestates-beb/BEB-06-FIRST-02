@@ -1,4 +1,5 @@
 [
+<<<<<<< HEAD
     {
         "name": "yongNFT",
         "token_id": "4",
@@ -17,6 +18,9 @@
         "writer": "hong",
         "price": "0.02 ETH"
     },
+=======
+ 
+>>>>>>> 0fe6417 (mainpage backend update)
     {
         "name": "yongNFT",
         "token_id": "1",
@@ -3554,4 +3558,5 @@
         "writer": "yong",
         "price": "0.01 ETH"
     }
+   
 ]

@@ -43,10 +43,12 @@ module.exports = {
             if(err) throw err;
             let obj = JSON.parse(data)
 
-            console.log(obj[0],obj[1]);
+            console.log(obj[1]);
 
-            res.send("testtest")
+            // res.send("testtest")
+            res.send(data)
         });
     }
   };
+  
   
