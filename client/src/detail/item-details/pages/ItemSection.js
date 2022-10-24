@@ -2,7 +2,7 @@ import ItemPropertise from "../components/ItemProperties";
 import ItemAbout from "../components/ItemAbout";
 import ItemDetails from "../components/ItemDetails";
 
-const ItemSection = () => {
+const ItemSection = ({ info }) => {
   return (
     <div className="item-section main-border">
       <div className="item-section__description section-padding">
@@ -12,7 +12,7 @@ const ItemSection = () => {
       <div className="item-section__creator">
         <span>BY</span>
         <a href="#">
-          <div className="item-section__creator-creator">Creator</div>
+          <div className="item-section__creator-creator">{info.name}</div>
         </a>
       </div>
       <ItemPropertise />

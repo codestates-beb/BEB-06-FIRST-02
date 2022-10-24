@@ -1,11 +1,10 @@
 import ItemArticleHeader from "./ItemArticleHeader";
-import dummyNFT from "../../image/dummy-nft.png";
 
-const ItemArticle = () => {
+const ItemArticle = ({ info }) => {
   return (
     <div className="item-article main-border">
       <ItemArticleHeader />
-      <img alt="dummy" src={dummyNFT} />
+      <img alt="dummy" src={info.image} />
     </div>
   );
 };
