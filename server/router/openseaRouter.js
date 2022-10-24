@@ -1,4 +1,4 @@
-const { listing,getData } = require('../controller/openseaController');
+const { listing,getData,test } = require('../controller/openseaController');
 const express = require('express');
 const router = express.Router();
 
@@ -7,5 +7,6 @@ router.post('/listing', listing);
 
 // http://localhost:3001/opesea/getData
 router.get('/getData', getData);
+
 
 module.exports = router;

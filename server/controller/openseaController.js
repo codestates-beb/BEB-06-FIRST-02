@@ -2,15 +2,6 @@ const fs = require("fs");
 
 const DB = require("../DB/nftList.json")
 
-const _data = {
-    "name": "",
-    "token_id": "",
-    "traits": "",
-    "image": "",
-    "theme": "",
-    "writer": "",
-    "price": ""
-}
 
 // price/writer/theme
 
@@ -18,10 +9,21 @@ const _data = {
     Sell 하면 NFT 판매 데이터 req로 받고 DB(nftList.json)맨 앞에 데이터 추가
 */
 module.exports = {
-    // http://localhost:3001/opesea/listing
+    // await axios.post('http://localhost:3001/opesea/listing', {data},{headers});
     listing : (req, res) => {
 
     // req
+    const { name, token_id, traits, image, theme, writer, price} = req.body.data;
+
+    const _data = {
+        "name": name,
+        "token_id": token_id,
+        "traits": traits,
+        "image": image,
+        "theme": theme,
+        "writer": writer,
+        "price": price
+    }
 
     fs.readFile('./DB/nftList.json','utf8',(err,data) => {
         if(err) throw err;

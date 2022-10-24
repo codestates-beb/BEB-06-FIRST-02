@@ -2,7 +2,9 @@ import ItemSection from "./ItemSection";
 import ItemArticle from "./ItemArticle";
 import "./summary.css";
 
-const ItemSummary = () => {
+const ItemSummary = (props) => {
+  const {image} = props;
+  
   return (
     <div className="item-summary">
       <ItemArticle />

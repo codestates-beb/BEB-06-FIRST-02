@@ -89,7 +89,7 @@ function MintingPage() {
 
       const transaction = {
         from: accounts[0],
-        gas: 1900000,
+        gas: 190000,
         gasPrice: web3.utils.toWei("1.5", "gwei"),
       };
 
