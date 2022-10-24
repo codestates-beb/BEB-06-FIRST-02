@@ -207,6 +207,7 @@ function App() {
         {
           inputs: [
             {
+<<<<<<< HEAD
               internalType: "address",
               name: "to",
               type: "address",
@@ -221,6 +222,12 @@ function App() {
               name: "uri",
               type: "string",
             },
+=======
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            }
+>>>>>>> 621cd39529919975ed6a19b6d947de6bc6487fda
           ],
           name: "safeMint",
           outputs: [],
@@ -525,6 +532,7 @@ function App() {
               type: "string",
             },
           ],
+<<<<<<< HEAD
           stateMutability: "view",
           type: "function",
         },
@@ -532,6 +540,20 @@ function App() {
       const address = "0xFa5F766C57b21b83c2AD003E25682EC7e970213B"; //컨트랙트 주소
       const contract = new web3.eth.Contract(abi, address);
       const result = await contract.methods.ownerOf("1").call();
+=======
+          "stateMutability": "view",
+          "type": "function"
+        }
+      ]
+      const address = '0xd2f63451451C4f5C8283341a4C503f4EDf7A9C12';//컨트랙트 주소
+      const contract = new web3.eth.Contract(abi, address);
+      const result = await contract.methods.ownerOf("1").call();
+      
+      await contract.methods.initDealAddress("0xe38440210899d2daa484252C1B39C08aC00fC64D").send({from: accounts[0], gas: 200000, gasPrice: web3.utils.toWei("1.5", "gwei")});
+      await contract.methods.listing(1, 2000).send({from: accounts[0], gas: 200000, gasPrice: web3.utils.toWei("1.5", "gwei")});
+
+      const result1 = await contract.methods.getApproved("1").call();
+>>>>>>> 621cd39529919975ed6a19b6d947de6bc6487fda
 
       await contract.methods
         .initDealAddress("0xe38440210899d2daa484252C1B39C08aC00fC64D")
@@ -550,7 +572,11 @@ function App() {
       console.log(e);
       return e;
     }
+<<<<<<< HEAD
   };
+=======
+  }
+>>>>>>> 621cd39529919975ed6a19b6d947de6bc6487fda
 
   const transfer = async () => {
     var accounts = await window.ethereum.request({
@@ -691,12 +717,20 @@ function App() {
       const address = "0xe38440210899d2daa484252C1B39C08aC00fC64D"; //컨트랙트 주소
       const contract = new web3.eth.Contract(abi, address);
 
+<<<<<<< HEAD
       await contract.methods
         .initErc721Contract("0xFa5F766C57b21b83c2AD003E25682EC7e970213B")
         .send({ from: accounts[0], gas: 21000, gasPrice: "1000000000000" });
       await contract.methods
         .deal(address, accounts[0], 1)
         .send({ from: accounts[0], gas: 21000, gasPrice: "1000000000000" });
+=======
+      await contract.methods.initErc721Contract("0xd2f63451451C4f5C8283341a4C503f4EDf7A9C12").send({from: accounts[0], gas: 200000, gasPrice: web3.utils.toWei("1.5", "gwei")});
+      await contract.methods.deal(address, accounts[0], 1).send({from: accounts[0], gas: 200000, gasPrice: web3.utils.toWei("1.5", "gwei")});
+
+      const result1 = await contract.methods.ownerOf("1").call();
+      console.log(result1);
+>>>>>>> 621cd39529919975ed6a19b6d947de6bc6487fda
     } catch (e) {
       console.log(e);
       return e;
