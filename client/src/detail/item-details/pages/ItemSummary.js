@@ -2,13 +2,11 @@ import ItemSection from "./ItemSection";
 import ItemArticle from "./ItemArticle";
 import "./summary.css";
 
-const ItemSummary = (props) => {
-  const {image} = props;
-  
+const ItemSummary = ({ info }) => {
   return (
     <div className="item-summary">
-      <ItemArticle />
-      <ItemSection />
+      <ItemArticle info={info} />
+      <ItemSection info={info} />
     </div>
   );
 };
