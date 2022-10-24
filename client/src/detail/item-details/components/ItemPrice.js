@@ -1,8 +1,9 @@
 import { useState } from "react";
 import ethreumSymbol from "../../image/ethereum_symbol.png";
 import ConnectMetamask from "./ConnetMetamask";
+import axios from "axios"
 
-const ItemPrice = () => {
+const ItemPrice = (props) => {
   const [login, setLogin] = useState(false);
 
   const handleCartButton = async () => {
@@ -12,6 +13,24 @@ const ItemPrice = () => {
 
   const handleBuyButton = () => {
     ConnectMetamask();
+  };
+
+  const handleSellButton = async () => {
+    ConnectMetamask();
+    
+  const _data = {
+    "name": "name1",
+    "token_id": 1,
+    "traits": "aaa",
+    "image": "bbb",
+    "theme": "ccc",
+    "writer": "ddd",
+    "price": "eee"
+  }
+
+  let a = await axios.post('http://localhost:3001/opesea/listing',{data:_data});
+
+  console.log(a);
   };
 
   return (
@@ -26,7 +45,8 @@ const ItemPrice = () => {
       </div>
       <div className="item-price-button">
         <button onClick={handleCartButton}>Add to cart</button>
-        <button onClick={handleBuyButton}>Buy</button>
+        <button onClick={handleBuyButton} >Buy</button>
+        <button onClick={handleSellButton} >Sell</button>
       </div>
     </div>
   );
