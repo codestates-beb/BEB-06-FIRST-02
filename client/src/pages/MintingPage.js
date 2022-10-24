@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Web3 from "web3";
+import ERC721ABI from "../ABI/ERC721ABI.json"
 import '../asset/mintingPage.css'
 import { create } from 'ipfs-http-client';
 import { Buffer } from 'buffer';
@@ -7,18 +9,22 @@ const projectId = "2GP6hmvIjDCIGLy3xIv8FEtX6gr"
 const projectSecret = "54c311eb5f5120891becb6a30380a04b"
 const auth = 'Basic ' + Buffer.from(projectId + ':' + projectSecret).toString('base64');
 
- const client = create({
-    host: 'ipfs.infura.io',
-    port: 5001,
-    protocol: 'https',
-    headers: {
-      authorization: auth
-    }
-  })
+const client = create({
+  host: 'ipfs.infura.io',
+  port: 5001,
+  protocol: 'https',
+  headers: {
+    authorization: auth
+  }
+})
+
 
 
 
 function MintingPage() {
+  const [contractAddress,setContractAddress] = useState("0x32ef07a26a105b262f69ed75083d174C85499FBd");
+
+
   const [imgData,setImgData] = useState();
   const [imageSrc, setImageSrc] = useState("");
   const [files, setFiles] = useState('');
@@ -55,12 +61,51 @@ function MintingPage() {
     setFiles(e.target.files[0]);
     img.append("file", e.target.files[0]);
     setImgData(img)
-    console.log(img);
   };
 
   const minting = async() => {
-    const imgUrl = await client.add(files);
-    console.log(imgUrl);
+    try {
+      if(!formData.name || !formData.description || !files) {
+        alert(`Name, Description, File를 적어주세요.`)
+        return;
+      }
+      const imgUrl = await client.add(files);
+
+      const _json = {
+        name: formData.name,
+        description: formData.description,
+        image: "https://project1.infura-ipfs.io/ipfs/" + imgUrl.path
+      };
+
+      const metaData = await client.add(JSON.stringify(_json));
+      const metaDataUrl = "https://project1.infura-ipfs.io/ipfs/" + metaData.path;
+      console.log(metaDataUrl);
+
+
+      // todo nft Minting
+
+      const web3 = new Web3(window.ethereum);
+      const accounts = await web3.eth.getAccounts();
+
+      const transaction = {
+        from: accounts[0],
+        gas: 1900000,
+        gasPrice: web3.utils.toWei("1.5", "gwei"),
+      };
+
+      const ERC721Contract = new web3.eth.Contract(
+        ERC721ABI,
+        contractAddress
+      )
+      
+      const MINTING = await ERC721Contract.methods.safeMint(accounts[0],8,metaDataUrl).send(transaction);
+      
+      // 민팅 성공 시 
+      console.log(MINTING);
+
+    } catch (error) {
+      console.log(error);
+    }
   }
 
 

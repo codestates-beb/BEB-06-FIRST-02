@@ -1,0 +1,23 @@
+.item-component__header{
+    display: grid;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 22px;
+    padding: 10px 0px;
+    margin-bottom: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    border-bottom: 1px solid rgba(255,255,255,0.8); ;
+}
+.item-component__header span{
+    /* width: 20%; */
+    text-align: center;
+}
+
+.itemListItem{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.page{
+    padding: 50px;
+}

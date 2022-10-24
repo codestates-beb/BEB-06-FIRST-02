@@ -1,0 +1,47 @@
+.themelist{
+    border-top: 1px solid rgba(255,255,255,0.8);
+    
+    color: white;
+}
+/* 테마 선택 헤더 */
+/* .themelist-head{
+    padding: 20px 0px;
+    display: flex;
+    justify-content: space-evenly;  
+    border-bottom: 1px solid rgba(255,255,255,0.8); ;
+} */
+
+.themelist-head{
+    display: grid;
+    grid-auto-flow: column;
+    scroll-behavior: auto;
+    gap: 1.2rem;
+    overflow-y: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+
+    padding: 20px 0px;
+    border-bottom: 1px solid rgba(255,255,255,0.8); ;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+.themelist-head-btn{
+    margin: 0px, 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border: 1px solid rgba(0,0,0,0);
+    text-align: center;
+    background: linear-gradient(to right, #59f9b7, #66feea);
+    padding: 25px 65px;
+    border-radius: 50px;
+    color: black;
+}
+
+.themelist-head-btn:hover{
+    letter-spacing: 5px;
+}
+
+
