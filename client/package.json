@@ -25,7 +25,6 @@
     "web3": "^1.8.0"
   },
   "scripts": {
-    "dev": "concurrently \"npm run start\" \"node ../server/app.js\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

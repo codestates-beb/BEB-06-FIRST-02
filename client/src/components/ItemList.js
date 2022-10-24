@@ -56,17 +56,19 @@ const ItemList = ({ getItem, selectTheme }) => {
                 </Link>
               ))
             : TaemeItemFilter.slice(offset, offset + itemCount).map((punk) => (
-                <div>
-                  <Item
-                    key={punk.token_id}
-                    id={punk.token_id}
-                    name={punk.name}
-                    writer={punk.writer}
-                    price={punk.price}
-                    //traits={punk[].traits}
-                    image={punk.image}
-                  />
-                </div>
+                <Link to={`/detail/${punk.token_id}`} state={{ details: punk }}>
+                  <div>
+                    <Item
+                      key={punk.token_id}
+                      id={punk.token_id}
+                      name={punk.name}
+                      writer={punk.writer}
+                      price={punk.price}
+                      //traits={punk[].traits}
+                      image={punk.image}
+                    />
+                  </div>
+                </Link>
               ))
         }
       </div>

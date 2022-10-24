@@ -4,11 +4,10 @@ import ConnectMetamask from "./ConnetMetamask";
 import axios from "axios";
 
 const ItemPrice = ({ info, transfer }) => {
-  const [login, setLogin] = useState(false);
+  const [sell, setSell] = useState(false);
 
   const handleCartButton = async () => {
     await ConnectMetamask();
-    setLogin(true);
   };
 
   const handleBuyButton = () => {
@@ -18,6 +17,7 @@ const ItemPrice = ({ info, transfer }) => {
 
   const handleSellButton = async () => {
     ConnectMetamask();
+    setSell(true);
 
     const _data = {
       name: `${info.name}`,
@@ -47,8 +47,29 @@ const ItemPrice = ({ info, transfer }) => {
       </div>
       <div className="item-price-button">
         <button onClick={handleCartButton}>Add to cart</button>
-        <button onClick={handleBuyButton}>Buy</button>
-        <button onClick={handleSellButton}>Sell</button>
+        {sell ? (
+          <>
+            <button onClick={handleBuyButton}>Buy</button>
+            <button
+              onClick={handleSellButton}
+              disabled={sell}
+              style={{ backgroundColor: "gray" }}
+            >
+              Sell
+            </button>
+          </>
+        ) : (
+          <>
+            <button
+              onClick={handleBuyButton}
+              disabled={!sell}
+              style={{ backgroundColor: "gray" }}
+            >
+              Buy
+            </button>
+            <button onClick={handleSellButton}>Sell</button>
+          </>
+        )}
       </div>
     </div>
   );
