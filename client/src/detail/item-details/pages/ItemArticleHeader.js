@@ -27,9 +27,9 @@ const ItemArticleHeader = () => {
           <span>{likeCount}</span>
           <button onClick={handleLike}>
             {like ? (
-              <i class="fa-solid fa-heart"></i>
+              <i className="fa-solid fa-heart"></i>
             ) : (
-              <i class="far fa-heart"></i>
+              <i className="far fa-heart"></i>
             )}
           </button>
         </div>

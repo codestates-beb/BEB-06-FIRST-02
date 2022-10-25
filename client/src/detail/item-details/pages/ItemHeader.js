@@ -18,7 +18,7 @@ const ItemHeader = ({ info }) => {
         </div>
         <div>
           <span className="prop-likecounter">
-            <i class="fa-solid fa-heart fa-xl"></i>
+            <i className="fa-solid fa-heart fa-xl"></i>
             <span>{likeCount}</span>
           </span>
         </div>

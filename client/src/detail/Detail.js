@@ -8,6 +8,8 @@ function Detail(props) {
   const location = useLocation();
   const details = location.state.details;
 
+  // console.log(details);
+  
   return (
     <div id="Detail">
       <RecoilRoot>

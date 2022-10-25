@@ -17,6 +17,8 @@ import {
   MDBTypography,
 } from "mdb-react-ui-kit";
 
+import { Link } from "react-router-dom";
+
 export default function MyPage(props) {
   //console.log(props.account)
   //console.log(props.list)
@@ -40,7 +42,8 @@ export default function MyPage(props) {
                   <MDBCardImage
                     src={
                       nftlist.length != 0
-                        ? nftlist[1].creator.profile_img_url
+                        ? nftlist[0].creator.profile_img_url
+                        // ? nftlist[1].creator.profile_img_url
                         : null
                     }
                     alt="Generic placeholder image"
@@ -91,13 +94,25 @@ export default function MyPage(props) {
                 </div>
                 <MDBRow>
                   {nftlist.map((el) => {
+                    const punk = {
+                      image: el.image_original_url,
+                      name:el.name,
+                      price:"",
+                      theme:"",
+                      token_id:el.token_id,
+                      traits:"",
+                      writer:"",
+                      check:true
+                    }
                     return (
                       <MDBCol key={el.id} className="mb-2">
+                        <Link to={`/detail/${el.token_id}`} state={{ details: punk }}>
                         <MDBCardImage
                           src={el.image_url}
                           alt="image 1"
                           className="w-100 rounded-3"
                         />
+                        </Link>
                       </MDBCol>
                     );
                   })}

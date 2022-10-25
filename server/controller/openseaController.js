@@ -22,6 +22,7 @@ module.exports = {
       theme: theme,
       writer: writer,
       price: price,
+      check:true
     };
 
     fs.readFile("./DB/nftList.json", "utf8", (err, data) => {
@@ -36,14 +37,30 @@ module.exports = {
 
     res.send("testtest");
   },
+  buying: (req, res) => {
+    // req
+    const { name, price } =
+      req.body.data;
+
+    fs.readFile("./DB/nftList.json", "utf8", (err, data) => {
+      if (err) throw err;
+      let obj = JSON.parse(data);
+
+      const _obj = obj.filter((e) => e.name !== name && e.price !==price);
+
+      let json = JSON.stringify(_obj, null, 4);
+      fs.writeFile("./DB/nftList.json", json, "utf8", (err, result) => {
+        if (err) throw err;
+      });
+    });
+
+    res.send("success");
+  },
   // http://localhost:3001/opesea/getData
   getData: (req, res) => {
     fs.readFile("./DB/nftList.json", "utf8", (err, data) => {
       if (err) throw err;
       let obj = JSON.parse(data);
-
-      console.log(obj[1]);
-
       // res.send("testtest")
       res.send(data);
     });

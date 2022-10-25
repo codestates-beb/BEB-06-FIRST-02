@@ -523,13 +523,14 @@ function App() {
       const contract = new web3.eth.Contract(abi, address);
       const result = await contract.methods.ownerOf("1").call();
 
-      await contract.methods
-        .initDealAddress("0xe38440210899d2daa484252C1B39C08aC00fC64D")
-        .send({
-          from: accounts[0],
-          gas: 200000,
-          gasPrice: web3.utils.toWei("1.5", "gwei"),
-        });
+      // await contract.methods
+      //   .initDealAddress("0xe38440210899d2daa484252C1B39C08aC00fC64D")
+      //   .send({
+      //     from: accounts[0],
+      //     gas: 200000,
+      //     gasPrice: web3.utils.toWei("1.5", "gwei"),
+      //   });
+
       await contract.methods.listing(1, 2000).send({
         from: accounts[0],
         gas: 200000,
@@ -687,13 +688,14 @@ function App() {
       const address = "0xe38440210899d2daa484252C1B39C08aC00fC64D"; //컨트랙트 주소
       const contract = new web3.eth.Contract(abi, address);
 
-      await contract.methods
-        .initErc721Contract("0xd2f63451451C4f5C8283341a4C503f4EDf7A9C12")
-        .send({
-          from: accounts[0],
-          gas: 200000,
-          gasPrice: web3.utils.toWei("1.5", "gwei"),
-        });
+      // await contract.methods
+      //   .initErc721Contract("0xd2f63451451C4f5C8283341a4C503f4EDf7A9C12")
+      //   .send({
+      //     from: accounts[0],
+      //     gas: 200000,
+      //     gasPrice: web3.utils.toWei("1.5", "gwei"),
+      //   });
+      
       await contract.methods.deal(address, accounts[0], 1).send({
         from: accounts[0],
         gas: 200000,
